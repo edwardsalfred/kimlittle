@@ -516,7 +516,8 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
 
   .nav-toggle{display:flex;flex-direction:column;justify-content:center;align-items:center}
   .nav-links{
-    position:fixed;top:0;left:0;right:0;bottom:0;
+    position:fixed;top:0;left:0;right:0;
+    height:100vh;height:100dvh;
     background:var(--paper);
     flex-direction:column;justify-content:center;align-items:center;gap:8px;
     z-index:99;padding:80px 24px 40px;
