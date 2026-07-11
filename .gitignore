@@ -1,0 +1,25 @@
+# System / OS
+.DS_Store
+Thumbs.db
+
+# Playwright MCP session artifacts
+.playwright-mcp/
+
+# Scratch / skill scaffold directories from local workflow
+3D-Animation-Creator-*/
+Image-Generator-*/
+
+# QA & debug screenshots captured during development
+foot-brand-v*.png
+nav-brand-v*.png
+nav-btn.png
+navbar.png
+navbar-full.png
+hero-legibility.png
+desktop-full.png
+desktop-hero.png
+desktop-hero2.png
+mobile-hero.png
+afterimage.png
+beforeimage.png
+Kimbeingswornin.png

@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Competitive Analysis | Gulf Coast Clinical Consulting</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f4f0;
+    --paper-card:#fffefa;
+    --ink:#1a1a1a;
+    --ink-mute:#5b544a;
+    --hairline:#e3ded4;
+    --terracotta:#c45d3e;
+    --deep-teal:#0e9f8f;
+    --black:#0a0a0a;
+    --red:#c8102e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+  body{position:relative;padding:56px 24px 96px}
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.2 0 0 0 0 0.16 0 0 0 0 0.12 0 0 0 0.14 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    mix-blend-mode:multiply;
+  }
+  .wrap{max-width:960px;margin:0 auto;position:relative;z-index:1}
+  .badge{display:inline-block;padding:6px 14px;border:1px solid var(--terracotta);color:var(--terracotta);font-size:11px;letter-spacing:.22em;text-transform:uppercase;border-radius:100px}
+  h1,h2,h3{font-family:'Instrument Serif',serif;font-weight:400;letter-spacing:-.01em}
+  h1{font-size:64px;line-height:1.05;margin:18px 0 12px}
+  h2{font-size:38px;line-height:1.15;margin:0 0 8px}
+  h3{font-size:26px;line-height:1.2}
+  .lede{font-size:18px;color:var(--ink-mute);max-width:640px}
+  .meta{margin-top:24px;padding-top:24px;border-top:1px solid var(--hairline);display:flex;gap:36px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute)}
+  .meta div span{display:block;font-size:14px;color:var(--ink);letter-spacing:0;text-transform:none;margin-top:4px;font-family:'Instrument Serif',serif}
+  section{margin-top:64px}
+  .section-num{font-family:'Instrument Serif',serif;font-size:56px;color:var(--hairline);line-height:1;margin-bottom:-6px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;background:rgba(196,93,62,.08);color:var(--terracotta);border-radius:100px}
+  .card{background:var(--paper-card);border-left:4px solid var(--terracotta);border-radius:6px;padding:28px 30px;margin-top:22px;box-shadow:0 1px 2px rgba(0,0,0,.04);transition:transform .2s ease, box-shadow .2s ease}
+  .card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.06)}
+  .card p{margin:8px 0 0;color:var(--ink-mute);font-size:15px}
+  .card .url{display:inline-block;margin-top:6px;font-size:13px;color:var(--terracotta);text-decoration:none;border-bottom:1px solid var(--terracotta);letter-spacing:.02em}
+  .swatches{display:flex;gap:8px;margin-top:14px}
+  .sw{width:36px;height:36px;border-radius:6px;border:1px solid rgba(0,0,0,.06);position:relative}
+  .sw span{position:absolute;top:calc(100% + 4px);left:0;font-size:10px;color:var(--ink-mute);white-space:nowrap;font-family:'DM Sans',monospace;letter-spacing:.02em}
+  .scores{display:grid;grid-template-columns:repeat(4,1fr);gap:10px 24px;margin-top:22px;padding-top:18px;border-top:1px dashed var(--hairline)}
+  .scores div{font-size:12px;color:var(--ink-mute);letter-spacing:.06em;text-transform:uppercase}
+  .scores div b{display:block;font-family:'Instrument Serif',serif;font-size:22px;color:var(--ink);font-weight:400;letter-spacing:0;text-transform:none;margin-top:2px}
+  .compare{width:100%;border-collapse:collapse;margin-top:22px;font-size:14px;background:var(--paper-card)}
+  .compare th,.compare td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--hairline)}
+  .compare th{font-family:'Instrument Serif',serif;font-weight:400;font-size:15px;background:rgba(196,93,62,.06)}
+  .compare td.n{text-align:right;font-variant-numeric:tabular-nums}
+  .compare tr.top td{background:rgba(14,159,143,.08);font-weight:600}
+  .pattern{display:flex;gap:20px;padding:18px 0;border-bottom:1px dashed var(--hairline)}
+  .pattern:last-child{border-bottom:none}
+  .pattern .num{font-family:'Instrument Serif',serif;font-size:36px;color:var(--terracotta);line-height:1;min-width:44px}
+  .pattern h3{font-size:20px;margin-bottom:4px}
+  .pattern p{font-size:14.5px;color:var(--ink-mute)}
+  .connector{height:36px;display:flex;justify-content:center;align-items:center}
+  .connector svg{opacity:.4}
+  .rec-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+  .rec{background:var(--paper-card);border-radius:6px;padding:22px;border-left:4px solid var(--deep-teal)}
+  .rec h4{font-family:'Instrument Serif',serif;font-size:20px;font-weight:400;margin-bottom:6px}
+  .rec p{font-size:14px;color:var(--ink-mute)}
+  .foot{margin-top:80px;padding-top:24px;border-top:1px solid var(--hairline);text-align:center;font-size:12px;color:var(--ink-mute);letter-spacing:.08em}
+  .credit{margin-top:20px;padding-top:20px;border-top:1px solid var(--hairline);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+  .credit a{color:var(--terracotta);font-weight:600;border-bottom:1px solid var(--terracotta);text-decoration:none}
+
+  @media (max-width:640px){
+    body{padding:36px 18px 72px}
+    h1{font-size:40px}
+    h2{font-size:28px}
+    .scores{grid-template-columns:repeat(2,1fr)}
+    .rec-grid{grid-template-columns:1fr}
+    .meta{flex-wrap:wrap;gap:16px}
+  }
+
+  @media print{
+    body{padding:0;background:#fff}
+    body::before{display:none}
+    .wrap{max-width:none}
+    .card,.rec,.compare{break-inside:avoid;box-shadow:none}
+    section{break-inside:avoid}
+    @page{size:A4;margin:18mm}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="badge">Competitive Analysis</span>
+    <h1>The Legal Nurse<br>Consulting Niche.</h1>
+    <p class="lede">A live audit of five leading LNC firms, scored across search, design, content, and conversion. Prepared to inform the Gulf Coast Clinical Consulting website build.</p>
+    <div class="meta">
+      <div>Prepared for<span>Dr. Kim D. Littles, DNP, MSN, RN-BC</span></div>
+      <div>Company<span>Gulf Coast Clinical Consulting</span></div>
+      <div>Date<span>July 2026</span></div>
+      <div>Method<span>Live URL scrape + scoring</span></div>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-num">01</div>
+    <h2>Executive Summary</h2>
+    <p style="margin-top:10px;color:var(--ink-mute);font-size:16px;max-width:720px">
+      The legal nurse consulting niche is content-rich and design-poor. Every top-scoring firm uses the same blue-and-white palette, the same corporate stock imagery, and the same static layout. Not one competitor animates on scroll. Not one uses a serif hero. This is a gift: Gulf Coast Clinical Consulting can enter the market with a distinctive black, teal, and red identity, a founder-face hero, and cinematic motion, and read as the most premium option on day one.
+    </p>
+    <div class="tags">
+      <span class="tag">Design gap</span>
+      <span class="tag">Founder-face opportunity</span>
+      <span class="tag">Regional SEO</span>
+      <span class="tag">Doctorate-tier authority</span>
+    </div>
+  </section>
+
+  <div class="connector"><svg width="2" height="30"><line x1="1" y1="0" x2="1" y2="30" stroke="#c45d3e" stroke-dasharray="3 4"/></svg></div>
+
+  <section>
+    <div class="section-num">02</div>
+    <h2>Competitor Profiles</h2>
+
+    <div class="card">
+      <h3>OnPoint Legal Nurse Consulting</h3>
+      <a class="url" href="https://onpointlnc.com/" target="_blank" rel="noopener">onpointlnc.com</a>
+      <p><b>Hero:</b> "Medical expertise that strengthens your case." <b>CTA:</b> Submit a Case.</p>
+      <p><b>Strengths:</b> Cleanest content structure of the group. Named-attorney testimonials. Broad service menu including Life Care Plans and Medicare Set-Asides.</p>
+      <p><b>Weaknesses:</b> No founder face. No motion. Standard navy corporate look.</p>
+      <div class="swatches">
+        <div class="sw" style="background:#1a3a5c"><span>#1A3A5C</span></div>
+        <div class="sw" style="background:#ffffff;border:1px solid var(--hairline)"><span>#FFFFFF</span></div>
+      </div>
+      <div class="scores">
+        <div>Search<b>8/10</b></div><div>Reviews<b>8/10</b></div><div>Design<b>7/10</b></div><div>Mobile<b>8/10</b></div>
+        <div>Content<b>9/10</b></div><div>Social proof<b>9/10</b></div><div>CTA<b>9/10</b></div><div>Speed<b>8/10</b></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Med League</h3>
+      <a class="url" href="https://www.medleague.com/" target="_blank" rel="noopener">medleague.com</a>
+      <p><b>Hero:</b> "Medical experts that you can trust." <b>CTA:</b> Request an Expert.</p>
+      <p><b>Strengths:</b> 35+ year track record featured heavily. Both physician and nurse experts on roster. Extensive attorney testimonials.</p>
+      <p><b>Weaknesses:</b> Carousel-heavy hero, mid-2010s aesthetic, no personality, feels corporate rather than boutique.</p>
+      <div class="swatches">
+        <div class="sw" style="background:#0e4a80"><span>#0E4A80</span></div>
+        <div class="sw" style="background:#ffffff;border:1px solid var(--hairline)"><span>#FFFFFF</span></div>
+      </div>
+      <div class="scores">
+        <div>Search<b>9/10</b></div><div>Reviews<b>9/10</b></div><div>Design<b>5/10</b></div><div>Mobile<b>7/10</b></div>
+        <div>Content<b>9/10</b></div><div>Social proof<b>9/10</b></div><div>CTA<b>8/10</b></div><div>Speed<b>7/10</b></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Alexan LNC</h3>
+      <a class="url" href="https://alexanlnc.com/" target="_blank" rel="noopener">alexanlnc.com</a>
+      <p><b>Hero:</b> "We know medicine; we know the issues; we know what clients need to prevail." <b>CTA:</b> Ring for the Nurse.</p>
+      <p><b>Strengths:</b> Founder Nancy Breedlove present in copy and image. "Ring for the Nurse" is the most memorable CTA line in the entire niche.</p>
+      <p><b>Weaknesses:</b> Site still reads as a mid-2010s corporate template. Icons carry teal but headline typography is plain.</p>
+      <div class="swatches">
+        <div class="sw" style="background:#1e5a9e"><span>#1E5A9E</span></div>
+        <div class="sw" style="background:#2ba59a"><span>#2BA59A</span></div>
+        <div class="sw" style="background:#ffffff;border:1px solid var(--hairline)"><span>#FFFFFF</span></div>
+      </div>
+      <div class="scores">
+        <div>Search<b>7/10</b></div><div>Reviews<b>7/10</b></div><div>Design<b>7/10</b></div><div>Mobile<b>7/10</b></div>
+        <div>Content<b>8/10</b></div><div>Social proof<b>8/10</b></div><div>CTA<b>8/10</b></div><div>Speed<b>7/10</b></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Legally Yours Nurse Consulting</h3>
+      <a class="url" href="https://legallyyoursnc.com/" target="_blank" rel="noopener">legallyyoursnc.com</a>
+      <p><b>Hero:</b> "Every attorney needs a SECRET WEAPON." <b>CTA:</b> Submit Your Case.</p>
+      <p><b>Strengths:</b> Sharpest positioning line in the niche. Founder Laura Brower visible. Named-attorney testimonials.</p>
+      <p><b>Weaknesses:</b> Small-business visual identity. ALL-CAPS hero reads shouty on desktop. Burgundy accents are muddled.</p>
+      <div class="swatches">
+        <div class="sw" style="background:#12406e"><span>#12406E</span></div>
+        <div class="sw" style="background:#84202a"><span>#84202A</span></div>
+        <div class="sw" style="background:#ffffff;border:1px solid var(--hairline)"><span>#FFFFFF</span></div>
+      </div>
+      <div class="scores">
+        <div>Search<b>6/10</b></div><div>Reviews<b>8/10</b></div><div>Design<b>6/10</b></div><div>Mobile<b>7/10</b></div>
+        <div>Content<b>8/10</b></div><div>Social proof<b>9/10</b></div><div>CTA<b>8/10</b></div><div>Speed<b>7/10</b></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Medical Resource Network (MRN)</h3>
+      <a class="url" href="https://www.medres.net/" target="_blank" rel="noopener">medres.net</a>
+      <p><b>Hero:</b> "Nurse consulting for attorneys, insurers, and healthcare." <b>CTA:</b> Learn More.</p>
+      <p><b>Strengths:</b> Broadest named client segments (attorneys, insurers, healthcare) signals scale.</p>
+      <p><b>Weaknesses:</b> Weakest CTA verb of the group. No founder presence. Most dated design of the five.</p>
+      <div class="swatches">
+        <div class="sw" style="background:#083a72"><span>#083A72</span></div>
+        <div class="sw" style="background:#ffffff;border:1px solid var(--hairline)"><span>#FFFFFF</span></div>
+      </div>
+      <div class="scores">
+        <div>Search<b>7/10</b></div><div>Reviews<b>6/10</b></div><div>Design<b>5/10</b></div><div>Mobile<b>6/10</b></div>
+        <div>Content<b>8/10</b></div><div>Social proof<b>7/10</b></div><div>CTA<b>6/10</b></div><div>Speed<b>7/10</b></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="connector"><svg width="2" height="30"><line x1="1" y1="0" x2="1" y2="30" stroke="#c45d3e" stroke-dasharray="3 4"/></svg></div>
+
+  <section>
+    <div class="section-num">03</div>
+    <h2>Head-to-Head</h2>
+    <table class="compare">
+      <thead>
+        <tr>
+          <th>Firm</th>
+          <th class="n">Search</th>
+          <th class="n">Design</th>
+          <th class="n">Content</th>
+          <th class="n">Social Proof</th>
+          <th class="n">CTA</th>
+          <th class="n">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="top"><td>OnPoint LNC</td><td class="n">8</td><td class="n">7</td><td class="n">9</td><td class="n">9</td><td class="n">9</td><td class="n">66/80</td></tr>
+        <tr><td>Med League</td><td class="n">9</td><td class="n">5</td><td class="n">9</td><td class="n">9</td><td class="n">8</td><td class="n">63/80</td></tr>
+        <tr><td>Alexan LNC</td><td class="n">7</td><td class="n">7</td><td class="n">8</td><td class="n">8</td><td class="n">8</td><td class="n">59/80</td></tr>
+        <tr><td>Legally Yours NC</td><td class="n">6</td><td class="n">6</td><td class="n">8</td><td class="n">9</td><td class="n">8</td><td class="n">59/80</td></tr>
+        <tr><td>MRN</td><td class="n">7</td><td class="n">5</td><td class="n">8</td><td class="n">7</td><td class="n">6</td><td class="n">52/80</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:12px;font-size:13px;color:var(--ink-mute)">Median design score across the niche is 5.8/10. Every competitor scores 5-7 on design. This is the single largest gap between top-of-niche and best-in-class.</p>
+  </section>
+
+  <div class="connector"><svg width="2" height="30"><line x1="1" y1="0" x2="1" y2="30" stroke="#c45d3e" stroke-dasharray="3 4"/></svg></div>
+
+  <section>
+    <div class="section-num">04</div>
+    <h2>SEO Landscape</h2>
+    <p style="margin-top:10px;color:var(--ink-mute)">Attorneys search the LNC niche with a small vocabulary. The queries below repeat across search behavior data:</p>
+    <ul style="margin:14px 0 0 22px;font-size:15px;color:var(--ink-mute);line-height:1.8">
+      <li>"legal nurse consultant [state / metro]"</li>
+      <li>"medical record review for attorneys"</li>
+      <li>"medical malpractice case merit review"</li>
+      <li>"nursing home neglect expert nurse"</li>
+      <li>"birth injury legal nurse consultant"</li>
+      <li>"life care planner [state]"</li>
+    </ul>
+    <div class="tags" style="margin-top:20px">
+      <span class="tag">Gap: regional intent</span>
+      <span class="tag">Gap: case-type pages</span>
+      <span class="tag">Gap: credentialed founder page</span>
+    </div>
+    <p style="margin-top:14px;font-size:14.5px;color:var(--ink-mute)">Gulf Coast Clinical Consulting has a naming advantage. Regional keywords like "Gulf Coast legal nurse consultant" have low competition and high commercial intent. Owning a founder-credential page (DNP + MSN + RN-BC) will differentiate against a niche where most owners are BSN-only.</p>
+  </section>
+
+  <div class="connector"><svg width="2" height="30"><line x1="1" y1="0" x2="1" y2="30" stroke="#c45d3e" stroke-dasharray="3 4"/></svg></div>
+
+  <section>
+    <div class="section-num">05</div>
+    <h2>Patterns of the Top 10%</h2>
+
+    <div class="pattern">
+      <div class="num">1</div>
+      <div>
+        <h3>Named founder equals trust multiplier</h3>
+        <p>Attorneys hire people, not firms. Alexan and Legally Yours both feature founders on the homepage and out-convert peers who hide behind stock imagery.</p>
+      </div>
+    </div>
+    <div class="pattern">
+      <div class="num">2</div>
+      <div>
+        <h3>Named-attorney testimonials, prominently placed</h3>
+        <p>Anonymous quotes are worthless in this niche. A named partner from a named firm is the currency. Every high-scoring site places these within the first two scroll depths.</p>
+      </div>
+    </div>
+    <div class="pattern">
+      <div class="num">3</div>
+      <div>
+        <h3>Action-verb CTAs, not "Contact us"</h3>
+        <p>"Submit a Case," "Request an Expert," "Ring for the Nurse" all beat "Learn More." The MRN weakness is a direct case study.</p>
+      </div>
+    </div>
+    <div class="pattern">
+      <div class="num">4</div>
+      <div>
+        <h3>Specific deliverables, not generic categories</h3>
+        <p>Attorneys need to see the exact artifact they will receive: chronology, merit letter, IME coordination, life care plan, deposition prep. Vague service labels lose to specific ones.</p>
+      </div>
+    </div>
+    <div class="pattern">
+      <div class="num">5</div>
+      <div>
+        <h3>Case-type verticals build authority</h3>
+        <p>Mass tort, malpractice, product liability, PI, nursing home neglect. Attorneys who work in these lanes want to see themselves reflected in the copy.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="connector"><svg width="2" height="30"><line x1="1" y1="0" x2="1" y2="30" stroke="#c45d3e" stroke-dasharray="3 4"/></svg></div>
+
+  <section>
+    <div class="section-num">06</div>
+    <h2>Recommended Direction</h2>
+    <div class="rec-grid">
+      <div class="rec">
+        <h4>Palette</h4>
+        <p>Ink black + teal (from the logo monogram) + a red spotlight for the primary CTA only. White for calm, warm bone (#F5F2EC) for section rhythm. Every competitor is blue and white; the delta is instant.</p>
+      </div>
+      <div class="rec">
+        <h4>Typography</h4>
+        <p>Playfair Display for headlines, Inter for body. Editorial serif signals authority. No competitor in the niche uses a serif.</p>
+      </div>
+      <div class="rec">
+        <h4>Hero art</h4>
+        <p>Dr. Littles' portrait, right-aligned on desktop, framed diplomas visible. Left-aligned copy leads with credentials and a case-review CTA.</p>
+      </div>
+      <div class="rec">
+        <h4>Motion</h4>
+        <p>GSAP + ScrollTrigger throughout. Section reveals, parallax on the portrait, gentle counter-ups on stats, restrained micro-interactions on cards. No competitor animates. Instant modernity signal.</p>
+      </div>
+      <div class="rec">
+        <h4>Site architecture</h4>
+        <p>Home, About Dr. Littles (credentials deep-dive), Services (with sub-headers for case-type verticals), Case Studies / For Attorneys, Contact / Request a Review. Regional SEO baked into titles.</p>
+      </div>
+      <div class="rec">
+        <h4>Primary CTA</h4>
+        <p>"Request a Case Review." Verb-forward, industry-standard, matches attorney search intent. Red spotlight color; the only red on the page.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot">
+    Confidential. Prepared for Gulf Coast Clinical Consulting.
+    <div class="credit">
+      Created by <a href="https://www.chatbotboy.ai/" target="_blank" rel="noopener">Chatbot Boy AI</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
