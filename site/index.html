@@ -101,7 +101,7 @@
     <div class="wrap">
       <div class="band-grid">
         <div class="band-item">
-          <div class="band-num" data-count="25">0</div>
+          <div class="band-num" data-count="33">0</div>
           <div class="band-label">Years of clinical practice</div>
         </div>
         <div class="divider" aria-hidden="true"></div>
@@ -326,17 +326,18 @@
             <li>Serving attorneys on the Gulf Coast and nationwide.</li>
           </ul>
         </div>
-        <form class="contact-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <form class="contact-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="row">
             <label>Name<input type="text" name="name" required autocomplete="name"></label>
-            <label>Firm<input type="text" name="firm" autocomplete="organization"></label>
+            <label>Firm<input type="text" name="firm" required autocomplete="organization"></label>
           </div>
           <div class="row">
             <label>Email<input type="email" name="email" required autocomplete="email"></label>
-            <label>Phone<input type="tel" name="phone" autocomplete="tel"></label>
+            <label>Phone<input type="tel" name="phone" required autocomplete="tel"></label>
           </div>
           <label>Case type
-            <select name="case_type">
+            <select name="case_type" required>
+              <option value="" disabled selected>Select a case type</option>
               <option>Medical malpractice</option>
               <option>Nursing home neglect</option>
               <option>Birth injury</option>
@@ -349,7 +350,7 @@
             </select>
           </label>
           <label>Brief case summary
-            <textarea name="summary" rows="5" placeholder="A short paragraph about the case, the clinical issues, and what you need reviewed."></textarea>
+            <textarea name="summary" rows="5" required placeholder="A short paragraph about the case, the clinical issues, and what you need reviewed."></textarea>
           </label>
           <button type="submit" class="btn btn-primary btn-block">Send Case Review Request</button>
           <p class="form-note">By submitting you agree to a confidential scoping conversation. This form does not create an engagement.</p>
@@ -386,7 +387,7 @@
       <h4>Contact</h4>
       <ul>
         <li><a href="#contact">Case review intake</a></li>
-        <li><a href="mailto:hello@gulfcoastclinicalconsulting.com">hello@gulfcoastclinicalconsulting.com</a></li>
+        <li><a href="mailto:LittlesLNC@gulfcoastclinicalconsulting.com">LittlesLNC@gulfcoastclinicalconsulting.com</a></li>
         <li>Gulf Coast, USA</li>
       </ul>
     </div>
