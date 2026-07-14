@@ -328,14 +328,14 @@
         </div>
         <form class="contact-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="row">
-            <label>Name<input type="text" name="name" required autocomplete="name"></label>
-            <label>Firm<input type="text" name="firm" required autocomplete="organization"></label>
+            <label>Name <span class="req" aria-hidden="true">*</span><input type="text" name="name" required autocomplete="name"></label>
+            <label>Firm <span class="req" aria-hidden="true">*</span><input type="text" name="firm" required autocomplete="organization"></label>
           </div>
           <div class="row">
-            <label>Email<input type="email" name="email" required autocomplete="email"></label>
-            <label>Phone<input type="tel" name="phone" required autocomplete="tel"></label>
+            <label>Email <span class="req" aria-hidden="true">*</span><input type="email" name="email" required autocomplete="email"></label>
+            <label>Phone <span class="req" aria-hidden="true">*</span><input type="tel" name="phone" required autocomplete="tel"></label>
           </div>
-          <label>Case type
+          <label>Case type <span class="req" aria-hidden="true">*</span>
             <select name="case_type" required>
               <option value="" disabled selected>Select a case type</option>
               <option>Medical malpractice</option>
@@ -349,7 +349,7 @@
               <option>Other / not sure</option>
             </select>
           </label>
-          <label>Brief case summary
+          <label>Brief case summary <span class="req" aria-hidden="true">*</span>
             <textarea name="summary" rows="5" required placeholder="A short paragraph about the case, the clinical issues, and what you need reviewed."></textarea>
           </label>
           <button type="submit" class="btn btn-primary btn-block">Send Case Review Request</button>
