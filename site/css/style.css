@@ -464,6 +464,16 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
 }
 .foot-brand-mark{height:56px;width:auto;display:block}
 .foot-brand p{font-size:14px;line-height:1.65;color:#a8adb2;max-width:340px;margin:0}
+.foot-social{list-style:none;padding:0;margin:18px 0 0;display:flex;gap:10px}
+.foot-social a{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,.06);color:#c7c9cc;
+  border:1px solid rgba(255,255,255,.08);
+  transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease;
+}
+.foot-social a:hover{background:var(--teal);color:#fff;border-color:var(--teal);transform:translateY(-1px)}
+.foot-social svg{display:block}
 .foot-col h4{
   font-family:var(--f-serif);font-size:16px;font-weight:600;color:var(--paper);
   margin:0 0 16px;letter-spacing:-.005em;
