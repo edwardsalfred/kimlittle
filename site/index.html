@@ -21,24 +21,98 @@
 
 <link rel="stylesheet" href="css/style.css?v=mobiledrawer">
 
+<link rel="canonical" href="https://www.gulfcoastclinicalconsulting.com/">
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Gulf Coast Clinical Consulting",
-  "description": "Legal nurse consulting for attorneys. Medical record review, case merit assessment, standard-of-care analysis, expert witness support, life care planning, and deposition preparation.",
-  "founder": {
-    "@type": "Person",
-    "name": "Dr. Kim D. Littles",
-    "honorificSuffix": "DNP, MSN, RN-BC",
-    "jobTitle": "Legal Nurse Consultant"
-  },
-  "areaServed": "United States",
-  "telephone": "+1-409-370-7755",
-  "email": "LittlesLNC@gulfcoastclinicalconsulting.com",
-  "image": "assets/founders/kim-littles.jpg",
-  "logo": "assets/gc-mark.png",
-  "priceRange": "$$-$$$"
+  "@graph": [
+    {
+      "@type": "LegalService",
+      "@id": "https://www.gulfcoastclinicalconsulting.com/#business",
+      "name": "Gulf Coast Clinical Consulting",
+      "url": "https://www.gulfcoastclinicalconsulting.com/",
+      "description": "Legal nurse consulting for plaintiff and defense attorneys. Medical record review and chronologies, case merit screening, standard-of-care analysis, expert witness location and preparation, life care planning support, and deposition and trial preparation.",
+      "founder": { "@id": "https://www.gulfcoastclinicalconsulting.com/#kim-littles" },
+      "employee": { "@id": "https://www.gulfcoastclinicalconsulting.com/#kim-littles" },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "AdministrativeArea", "name": "Gulf Coast (Texas, Louisiana, Mississippi, Alabama, Florida)" }
+      ],
+      "telephone": "+1-409-370-7755",
+      "email": "LittlesLNC@gulfcoastclinicalconsulting.com",
+      "image": "https://www.gulfcoastclinicalconsulting.com/assets/founders/kim-littles.jpg",
+      "logo": "https://www.gulfcoastclinicalconsulting.com/assets/gc-mark.png",
+      "priceRange": "$$-$$$",
+      "knowsAbout": [
+        "Legal nurse consulting",
+        "Medical record review",
+        "Case merit screening",
+        "Standard-of-care analysis",
+        "Expert witness preparation",
+        "Life care planning",
+        "Deposition and trial preparation",
+        "Medical malpractice",
+        "Nursing home neglect",
+        "Birth injury",
+        "Personal injury",
+        "Product liability",
+        "Wrongful death",
+        "Elder abuse",
+        "Pharmaceutical liability",
+        "Hematology / Oncology",
+        "Immune Effector Cell Therapy",
+        "Medical Surgical nursing"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Legal nurse consulting services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Medical Record Review & Chronology" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Case Merit Screening" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Standard-of-Care Analysis" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Expert Witness Location & Preparation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Life Care Planning Support" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Deposition & Trial Preparation" } }
+        ]
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61591486393519",
+        "https://www.linkedin.com/in/dr-kim-littles-dnp-msn-rn-bc-38b594117/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.gulfcoastclinicalconsulting.com/#kim-littles",
+      "name": "Dr. Kim D. Littles",
+      "honorificSuffix": "DNP, MSN, RN-BC",
+      "jobTitle": "Legal Nurse Consultant",
+      "worksFor": { "@id": "https://www.gulfcoastclinicalconsulting.com/#business" },
+      "image": "https://www.gulfcoastclinicalconsulting.com/assets/founders/kim-littles.jpg",
+      "url": "https://www.gulfcoastclinicalconsulting.com/#about",
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "Doctor of Nursing Practice (DNP)" },
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "degree", "name": "Master of Science in Nursing (MSN)" },
+        { "@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "Registered Nurse, Board Certified (RN-BC)" }
+      ],
+      "knowsAbout": [
+        "Hematology / Oncology",
+        "Immune Effector Cell Therapy",
+        "Medical Surgical nursing",
+        "Legal nurse consulting"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/dr-kim-littles-dnp-msn-rn-bc-38b594117/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.gulfcoastclinicalconsulting.com/#website",
+      "url": "https://www.gulfcoastclinicalconsulting.com/",
+      "name": "Gulf Coast Clinical Consulting",
+      "publisher": { "@id": "https://www.gulfcoastclinicalconsulting.com/#business" }
+    }
+  ]
 }
 </script>
 </head>
