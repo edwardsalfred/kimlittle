@@ -79,6 +79,11 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
   color:var(--ink);
   white-space:nowrap;
 }
+.nav-brand-line--split{
+  display:grid;grid-template-columns:1fr 1fr;column-gap:.35em;align-items:baseline;
+}
+.nav-brand-line--split > span:first-child{justify-self:end}
+.nav-brand-line--split > span:last-child{justify-self:start}
 .nav-brand-mark{
   height:44px;width:auto;display:block;
   transition:height .25s var(--ease-out);
@@ -462,6 +467,11 @@ button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
   color:#e6e8ec;
   white-space:nowrap;
 }
+.foot-brand-line--split{
+  display:grid;grid-template-columns:1fr 1fr;column-gap:.35em;align-items:baseline;
+}
+.foot-brand-line--split > span:first-child{justify-self:end}
+.foot-brand-line--split > span:last-child{justify-self:start}
 .foot-brand-mark{height:56px;width:auto;display:block}
 .foot-brand p{font-size:14px;line-height:1.65;color:#a8adb2;max-width:340px;margin:0}
 .foot-social{list-style:none;padding:0;margin:18px 0 0;display:flex;gap:10px}
